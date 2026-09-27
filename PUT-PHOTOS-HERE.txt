@@ -1,0 +1,9 @@
+Put six local JPG files in this folder:
+shinyu.jpg
+dohoon.jpg
+youngjae.jpg
+hanjin.jpg
+jihoon.jpg
+kyungmin.jpg
+
+The app intentionally uses local assets instead of Weverse hotlinks to prevent broken images on iPhone/GitHub Pages.

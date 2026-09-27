@@ -1,6 +1,88 @@
-<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#dff4ff"><link rel="manifest" href="manifest.webmanifest"><title>TWS 42 SPACE</title><style>
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial;background:#f7fbff;color:#152333}.app{max-width:520px;margin:auto;padding:18px 18px 90px}.hero{padding:28px 22px;border-radius:30px;background:linear-gradient(145deg,#d9f3ff,#eef9ff 60%,#fff);box-shadow:0 12px 35px #b6dff044}.eyebrow{font-size:12px;letter-spacing:2px;color:#5f8192}.hero h1{font-size:36px;margin:7px 0}.hero p{margin:0;color:#68808d}.card{background:#fff;border:1px solid #e7f1f6;border-radius:24px;padding:18px;margin-top:15px;box-shadow:0 8px 24px #9ac5d51c}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.badge{font-size:11px;padding:6px 9px;border-radius:999px;background:#e5f6ff;color:#277294;font-weight:700}.time{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:14px}.time div{background:#f3faff;border-radius:14px;padding:10px 7px;text-align:center;font-size:11px}.time b{display:block;font-size:14px;margin-top:3px}.count{font-size:27px;font-weight:800;margin:12px 0 2px}.title{display:flex;justify-content:space-between;align-items:end;margin:28px 2px 10px}.title h2{margin:0;font-size:22px}.title span{font-size:12px;color:#78909c}.schedule{display:grid;gap:10px}.event{display:grid;grid-template-columns:58px 1fr auto;gap:12px;align-items:center;background:#fff;border-radius:19px;padding:13px;border:1px solid #e9f2f7}.date{text-align:center;font-weight:800;font-size:20px}.date small{display:block;font-size:10px;color:#8195a0}.event h3{font-size:14px;margin:0 0 4px}.event p{font-size:11px;color:#758b96;margin:0}.members{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.member{height:210px;border-radius:23px;overflow:hidden;position:relative;background:linear-gradient(145deg,#d7effb,#edf8fd);border:1px solid #e2f0f7}.member img{width:100%;height:100%;object-fit:cover;display:block}.member .fallback{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#658393;font-weight:800;letter-spacing:1px}.member .name{position:absolute;left:10px;bottom:10px;background:#ffffffde;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800}.note{font-size:11px;color:#8296a0;line-height:1.5}.nav{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);width:min(480px,calc(100% - 24px));background:#ffffffed;backdrop-filter:blur(18px);border:1px solid #e3eff5;border-radius:22px;padding:12px;display:flex;justify-content:space-around;box-shadow:0 12px 40px #729aae33;font-size:11px}.nav b{color:#2581aa}a{color:inherit;text-decoration:none}
-</style></head><body><main class="app"><section class="hero"><div class="eyebrow">TWS · 42 SPACE</div><h1>Our little<br>fan space 🩵</h1><p>Schedule · Merch · Members · Drops</p></section>
-<section class="card"><div class="row"><div><span class="badge">NEXT DROP</span><h2 style="margin:10px 0 3px;font-size:20px">TWIMI : 42 Forest</h2><div style="font-size:12px;color:#708995">Online merch sale · Sep 28</div></div><div>🧸</div></div><div class="count" id="countdown">Loading…</div><div class="time"><div>🇰🇷 KST<b>11:00</b></div><div>🇨🇳 China<b>10:00</b></div><div>🇦🇺 Melbourne<b>12:00</b></div></div></section>
-<div class="title"><h2>Upcoming</h2><span>OFFICIAL / VERIFIED</span></div><div id="schedule" class="schedule"></div>
-<div class="title"><h2>Members</h2><span>6 MEMBERS</span></div><div id="members" class="members"></div><section class="card"><b>Photo status</b><p class="note">这个正式版不会再显示 Safari 的坏图“?”。成员照片文件一旦放进 assets/members/，页面会自动显示；没有本地图片时会显示干净的成员姓名占位。这样部署后再补图，不需要重写页面。</p></section></main><nav class="nav"><b>⌂ Home</b><span>◷ Schedule</span><span>♡ Merch</span><span>☆ Members</span></nav><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#dff4ff">
+<link rel="manifest" href="./manifest.webmanifest">
+<title>TWS 42 SPACE</title>
+<style>
+:root{--blue:#bdeaff;--blue2:#eaf8ff;--ink:#152331;--muted:#758696;--card:#fff;--line:#e7f0f5}
+*{box-sizing:border-box}body{margin:0;background:#f7fbfd;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,a{font:inherit}.app{max-width:720px;margin:auto;min-height:100vh;padding:18px 16px 94px}
+.top{display:flex;justify-content:space-between;align-items:center;margin:4px 2px 22px}.brand b{font-size:22px}.brand small{display:block;color:var(--muted);letter-spacing:.16em;margin-top:3px}.bubble{background:var(--blue2);padding:9px 12px;border-radius:999px;font-size:12px}
+.page{display:none}.page.active{display:block}.eyebrow{font-size:11px;letter-spacing:.16em;color:#5f8ea6;font-weight:800}.title{font-size:31px;line-height:1.05;margin:8px 0 18px}
+.hero{background:linear-gradient(145deg,#d9f4ff,#fff 70%);border:1px solid #d7eef8;border-radius:28px;padding:22px;box-shadow:0 12px 35px rgba(61,126,158,.09)}
+.hero h2{font-size:25px;margin:7px 0}.hero p{color:var(--muted);line-height:1.55}.count{font-size:28px;font-weight:900;letter-spacing:.04em;margin:18px 0}
+.actions{display:flex;gap:9px;flex-wrap:wrap}.btn{border:0;border-radius:14px;padding:12px 15px;background:#142533;color:white;text-decoration:none;font-weight:750}.btn.secondary{background:white;color:#263846;border:1px solid var(--line)}
+.sectionHead{display:flex;justify-content:space-between;align-items:end;margin:27px 2px 12px}.sectionHead h2{margin:0;font-size:20px}.linkbtn{border:0;background:none;color:#4787a5;font-weight:750}
+.list{display:grid;gap:10px}.event{display:grid;grid-template-columns:58px 1fr auto;gap:12px;align-items:center;background:white;border:1px solid var(--line);border-radius:20px;padding:13px;cursor:pointer}
+.date{text-align:center;font-size:21px;font-weight:900}.date small{display:block;font-size:10px;color:var(--muted)}.event h3{font-size:14px;margin:0 0 4px}.event p{font-size:12px;color:var(--muted);margin:0}.badge{font-size:9px;font-weight:900;background:var(--blue2);padding:7px 8px;border-radius:999px}
+.filters{display:flex;gap:7px;overflow:auto;padding:2px 0 13px}.filter{white-space:nowrap;border:1px solid var(--line);background:white;padding:9px 12px;border-radius:999px}.filter.active{background:#152b39;color:white}
+.merchGrid,.members{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.merch,.member{background:white;border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.merchVisual,.photo{aspect-ratio:1/1;background:linear-gradient(145deg,#d8f4ff,#fefefe);display:flex;align-items:center;justify-content:center}
+.merchVisual{font-size:45px}.merchBody{padding:13px}.merchBody h3{font-size:14px;margin:0 0 6px}.merchBody p{font-size:11px;color:var(--muted);margin:0 0 11px}
+.member{cursor:pointer;position:relative}.photo img{width:100%;height:100%;object-fit:cover}.fallback{font-weight:900;color:#6e9db3;text-align:center}.memberName{padding:12px 13px;font-weight:850}
+.nav{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);width:min(calc(100% - 24px),680px);display:grid;grid-template-columns:repeat(4,1fr);background:rgba(255,255,255,.93);backdrop-filter:blur(18px);border:1px solid var(--line);box-shadow:0 12px 35px rgba(30,64,80,.13);border-radius:22px;padding:7px;z-index:10}
+.nav button{border:0;background:none;border-radius:16px;padding:9px 2px;color:#82909b;font-size:10px}.nav button span{display:block;font-size:19px;margin-bottom:2px}.nav button.active{background:var(--blue2);color:#173346;font-weight:850}
+.modal{position:fixed;inset:0;background:rgba(9,25,35,.55);z-index:30;display:none;align-items:end;justify-content:center}.modal.show{display:flex}.sheet{width:min(100%,720px);max-height:86vh;overflow:auto;background:white;border-radius:28px 28px 0 0;padding:20px}.close{float:right;border:0;background:#edf5f8;width:35px;height:35px;border-radius:50%;font-size:18px}.sheetPhoto{width:100%;aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:var(--blue2);display:flex;align-items:center;justify-content:center;margin-top:15px}.sheetPhoto img{width:100%;height:100%;object-fit:cover}
+.note{font-size:12px;color:var(--muted);line-height:1.55;background:#f3f8fa;padding:12px;border-radius:14px;margin-top:13px}
+@media(min-width:600px){.members{grid-template-columns:repeat(3,1fr)}.merchGrid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div class="brand"><b>TWS 42 SPACE</b><small>MY FAN DASHBOARD</small></div><div class="bubble">🩵 42</div></header>
+
+<section class="page active" data-page="home">
+<div class="eyebrow">DON'T MISS</div><h1 class="title">Tomorrow,<br>the forest opens.</h1>
+<div class="hero">
+<div class="eyebrow">TWIMI · 42 FOREST</div><h2>Official Merch Drop</h2>
+<p>SEP 28 · 11:00 KST<br>China 10:00 · Melbourne 12:00</p>
+<div class="count" id="countdown">—</div>
+<div class="actions"><button class="btn" data-goto="merch">SHOP DETAILS</button><a class="btn secondary" href="https://shop.weverse.io/zh-tw/shop/KRW/artists/165/categories/8291" target="_blank" rel="noopener">WEVERSE SHOP ↗</a></div>
+</div>
+<div class="sectionHead"><h2>Coming up</h2><button class="linkbtn" data-goto="schedule">View all →</button></div>
+<div class="list" id="homeSchedule"></div>
+</section>
+
+<section class="page" data-page="schedule">
+<div class="eyebrow">CALENDAR</div><h1 class="title">Schedule</h1>
+<div class="filters" id="filters"></div><div class="list" id="schedule"></div>
+</section>
+
+<section class="page" data-page="merch">
+<div class="eyebrow">COLLECTION</div><h1 class="title">Merch</h1>
+<div class="hero"><div class="eyebrow">LIVE NEXT</div><h2>TWIMI : 42 Forest</h2><p>Official Global sale · SEP 28 · 11:00 KST</p>
+<div class="actions"><a class="btn" href="https://shop.weverse.io/zh-tw/shop/KRW/artists/165/categories/8291" target="_blank" rel="noopener">SHOP NOW ↗</a><a class="btn secondary" href="https://shop.weverse.io/zh-cn/shop/USD/artists/165/notices/14392" target="_blank" rel="noopener">OFFICIAL NOTICE ↗</a></div></div>
+<div class="sectionHead"><h2>TWIMI</h2></div>
+<div class="merchGrid">
+<div class="merch"><div class="merchVisual">🧸</div><div class="merchBody"><h3>Plush Keyring</h3><p>COMING · max 3 / option</p></div></div>
+<div class="merch"><div class="merchVisual">☁️</div><div class="merchBody"><h3>Face Cushion</h3><p>COMING · max 2</p></div></div>
+<div class="merch"><div class="merchVisual">🎟️</div><div class="merchBody"><h3>Lucky Draw</h3><p>COMING · max 10</p></div></div>
+</div>
+<div class="sectionHead"><h2>Archive dolls</h2></div>
+<div class="merchGrid">
+<div class="merch"><div class="merchVisual">🐻</div><div class="merchBody"><h3>BEAR</h3><p>Archive</p></div></div>
+<div class="merch"><div class="merchVisual">🐱</div><div class="merchBody"><h3>CAT</h3><p>Archive</p></div></div>
+<div class="merch"><div class="merchVisual">👻</div><div class="merchBody"><h3>GHOST</h3><p>Archive</p></div></div>
+</div>
+</section>
+
+<section class="page" data-page="members">
+<div class="eyebrow">TWS</div><h1 class="title">Members</h1>
+<div class="members" id="members"></div>
+<div class="note">成员照片现在只读取仓库里的 <b>assets/members/</b>，不会再热链 Weverse，所以不会出现之前 iPhone 上的破图。把对应 JPG 放进去后会自动显示。</div>
+</section>
+</div>
+
+<nav class="nav">
+<button class="active" data-goto="home"><span>⌂</span>Home</button>
+<button data-goto="schedule"><span>◫</span>Schedule</button>
+<button data-goto="merch"><span>♡</span>Merch</button>
+<button data-goto="members"><span>☺</span>Members</button>
+</nav>
+
+<div class="modal" id="modal"><div class="sheet"><button class="close" id="close">×</button><div id="modalContent"></div></div></div>
+<script src="./app.js"></script>
+</body></html>

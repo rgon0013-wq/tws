@@ -1,1 +1,10 @@
-{"name":"TWS 42 SPACE","short_name":"42 SPACE","start_url":"./","display":"standalone","background_color":"#f7fbff","theme_color":"#dff4ff","description":"TWS fan dashboard"}
+{
+  "name": "TWS 42 SPACE",
+  "short_name": "42 SPACE",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7fbfd",
+  "theme_color": "#dff4ff",
+  "description": "TWS fan dashboard"
+}

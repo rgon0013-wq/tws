@@ -1,6 +1,26 @@
 [
- {"day":"28","month":"SEP","title":"TWIMI : 42 Forest · Online Sale","detail":"11:00 KST · 10:00 China · 12:00 Melbourne","type":"MERCH","source":"https://shop.weverse.io/"},
- {"day":"04","month":"OCT","title":"TWS POP-UP · Bangkok","detail":"Final day","type":"POP-UP","source":"https://weverse.io/tws/notice"},
- {"day":"10","month":"OCT","title":"2026 TWS TOUR · Singapore","detail":"Singapore","type":"LIVE","source":"https://weverse.io/tws/notice/35444"},
- {"day":"24","month":"OCT","title":"2026 TWS TOUR · Kaohsiung","detail":"Kaohsiung","type":"LIVE","source":"https://weverse.io/tws/notice/35444"}
+  {
+    "day": "28",
+    "month": "SEP",
+    "title": "TWIMI : 42 Forest · Online Sale",
+    "detail": "11:00 KST · 10:00 China · 12:00 Melbourne",
+    "type": "MERCH",
+    "source": "https://shop.weverse.io/zh-cn/shop/USD/artists/165/notices/14392"
+  },
+  {
+    "day": "10",
+    "month": "OCT",
+    "title": "2026 TWS TOUR · Singapore",
+    "detail": "Singapore",
+    "type": "LIVE",
+    "source": "https://weverse.io/tws/notice/35444"
+  },
+  {
+    "day": "24",
+    "month": "OCT",
+    "title": "2026 TWS TOUR · Kaohsiung",
+    "detail": "Kaohsiung",
+    "type": "LIVE",
+    "source": "https://weverse.io/tws/notice/35444"
+  }
 ]
